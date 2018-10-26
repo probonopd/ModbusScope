@@ -16,9 +16,10 @@ build_script:
   - cmd: conan install . -g qmake
   - cmd: set PATH=%PATH%;%QTDIR%\bin
   - cmd: cd build
+  - cmd: echo %QTDIR%
   - cmd: dir %QTDIR%
-  - cmd: dir %QTDIR%\bin
-  - cmd: %QTDIR%\bin\qmake ../ -DBUILD_TEST=TRUE  -G "Visual Studio 14 2015 Win64"
+  - cmd: dir %QTDIR%/bin
+  - cmd: %QTDIR%/bin/qmake ../ -DBUILD_TEST=TRUE  -G "Visual Studio 14 2015 Win64"
 
 test_script:
   - cmd: dir
