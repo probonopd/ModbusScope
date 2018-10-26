@@ -1,7 +1,7 @@
 version: 1.0.{build}
 
 platform:
-  - x64
+  - x32
 
 install:
   - cmd: echo "Downloading conan..."
@@ -12,9 +12,7 @@ install:
 
 build_script:
   - cmd: conan install . -g qmake -g virtualenv
-  - cmd: activate.bat && SET
-  - ps: cat conanbuildinfo.txt
-  - cmd: SET
+  - cmd: activate.bat
   - cmd: qmake ModbusScope.pro
   - cmd: qmake_all
 
