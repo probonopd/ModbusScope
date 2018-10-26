@@ -5,8 +5,6 @@ platform:
 
 install:
   - cmd: echo "Downloading conan..."
-  - cmd: set QTDIR=C:\Qt\5.11.1\msvc2015_64\
-  - cmd: set PATH=%PATH%;%PYTHON%/Scripts/;%QTDIR%\bin
   - cmd: pip.exe install conan
   - cmd: conan user # Create the conan data directory
   - cmd: conan --version
