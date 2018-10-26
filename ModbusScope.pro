@@ -12,6 +12,11 @@ LIBS += -lws2_32
 RC_ICONS = icon/application.ico
 }
 
+exists(conanbuildinfo.pri) {
+    CONFIG += conan_basic_setup
+    include(conanbuildinfo.pri)
+}
+
 VERSION = 1.6.0
 
 DEFINES += DEBUG

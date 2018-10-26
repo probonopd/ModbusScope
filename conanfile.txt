@@ -1,0 +1,8 @@
+[requires]
+Qt/5.11.0@bincrafters/stable
+
+[generators]
+qmake
+
+[options]
+Qt:shared=True
