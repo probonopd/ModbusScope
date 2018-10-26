@@ -13,7 +13,8 @@ install:
 build_script:
   - cmd: conan install . -g qmake -g virtualenv
   - cmd: activate.bat && SET
-  - cmd: dir %CMAKE_PREFIX_PATH%\bin
+  - cmd: qtenv2.bat
+  - cmd: vcvarsall.bat
   - cmd: qmake -platform win32-msvc ModbusScope.pro
   - cmd: qmake_all
 
