@@ -16,8 +16,6 @@ build_script:
   - cmd: mkdir build
   - cmd: conan install . -g qmake
   - cmd: cd build
-  - cmd: echo %QTDIR%
-  - cmd: dir %QTDIR%
   - cmd: qmake ../
   - cmd: qmake_all
 
