@@ -13,7 +13,7 @@ install:
 build_script:
   - cmd: conan install . -g qmake -g virtualenv
   - cmd: activate.bat && SET
-  - cmd: qmake -platform win32-msvc ModbusScope.pro
+  - cmd: qmake -spec win32-msvc -tp vc ModbusScope.pro
   - cmd: qmake_all
 
 test_script:
