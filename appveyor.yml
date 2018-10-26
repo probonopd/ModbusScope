@@ -19,7 +19,7 @@ build_script:
   - cmd: echo %QTDIR%
   - cmd: dir %QTDIR%
   - cmd: dir %QTDIR%/bin
-  - cmd: %QTDIR%/bin/qmake ../ -DBUILD_TEST=TRUE  -G "Visual Studio 14 2015 Win64"
+  - cmd: qmake ../ -DBUILD_TEST=TRUE  -G "Visual Studio 14 2015 Win64"
 
 test_script:
   - cmd: dir
