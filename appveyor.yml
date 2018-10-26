@@ -5,7 +5,7 @@ platform:
 
 install:
   - cmd: echo "Downloading conan..."
-  - cmd: set QTDIR=C:\Qt\5.10.1\msvc2014_64
+  - cmd: set QTDIR=C:\Qt\5.10.1\msvc2014_64\
   - cmd: set PATH=%PATH%;%PYTHON%/Scripts/;%QTDIR%\bin
   - cmd: pip.exe install conan
   - cmd: conan user # Create the conan data directory
@@ -18,7 +18,6 @@ build_script:
   - cmd: cd build
   - cmd: echo %QTDIR%
   - cmd: dir %QTDIR%
-  - cmd: dir %QTDIR%/bin
   - cmd: qmake ../ -DBUILD_TEST=TRUE  -G "Visual Studio 14 2015 Win64"
 
 test_script:
