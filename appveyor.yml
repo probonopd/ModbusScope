@@ -14,6 +14,7 @@ install:
 build_script:
   - cmd: mkdir build
   - cmd: conan install . -g qmake
+  - cmd: set PATH=%PATH%;%QTDIR%\bin
   - cmd: cd build
   - cmd: qmake ../ -DBUILD_TEST=TRUE  -G "Visual Studio 14 2015 Win64"
 
