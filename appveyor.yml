@@ -15,7 +15,9 @@ install:
 build_script:
   - cmd: mkdir build
   - cmd: conan install . -g qmake
+  - ps: cat conanbuildinfo.txt
   - cmd: cd build
+  - cmd: qtenv2.bat
   - cmd: qmake ../ModbusScope.pro
   - cmd: qmake_all
 
