@@ -15,7 +15,7 @@ build_script:
   - cmd: activate.bat && SET
   - cmd: qmake --version
   - cmd: where qmake
-  - cmd: qmake ModbusScope.pro
+  - cmd: qmake -spec %CMAKE_PREFIX_PATH%\\mkspecs\\win32-msvc ModbusScope.pro
   - cmd: qmake_all
 
 test_script:
