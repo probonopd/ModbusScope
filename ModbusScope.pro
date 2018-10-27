@@ -1,3 +1,4 @@
+message("Top of qmake file")
 TARGET = ModbusScope
 TEMPLATE = app
 
