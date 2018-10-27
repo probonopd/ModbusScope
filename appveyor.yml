@@ -22,7 +22,7 @@ build_script:
   - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
   - cmd: SET
   - cmd: qmake --version
-  - cmd: qmake -d -spec %QTDIR%\\mkspecs\\win32-msvc ModbusScope.pro
+  - cmd: qmake -spec %QTDIR%\\mkspecs\\win32-msvc ModbusScope.pro
   - cmd: qmake_all
 
 test_script:

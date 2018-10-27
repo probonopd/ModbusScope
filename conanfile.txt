@@ -5,4 +5,4 @@ Qt/5.11.0@bincrafters/stable
 qmake
 
 [options]
-Qt:shared=False
+Qt:shared=True
