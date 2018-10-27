@@ -22,11 +22,11 @@ build_script:
   - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
   - cmd: SET
   - ps: Set-Content -Value "[Paths]`r`nPrefix=.." -Path ${Env:QTDIR}/bin/qt.conf
-  - cmd: dir %QTDIR%\\bin
-  - ps: cat ${Env:QTDIR}/bin/qt.conf
   - cmd: qmake --version
   - cmd: qmake -spec %QTDIR%\\mkspecs\\win32-msvc ModbusScope.pro
-  - cmd: make
+  - cmd: jom.exe qmake_all
+  - cmd: jom.exe
+  - cmd: jom.exe lrelease
 
 test_script:
         - cmd: dir
