@@ -1,6 +1,6 @@
 exists(conanbuildinfo.pri) {
-    include(conanbuildinfo.pri)
     CONFIG += conan_basic_setup
+    include(conanbuildinfo.pri)
 }
 
 QT += core gui xml network
