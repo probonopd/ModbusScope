@@ -17,8 +17,8 @@ install:
 build_script:
   - cmd: call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
   - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
-  - cmd: conan install . -g qmake -g virtualenv -s compiler="Visual Studio" -s os=Windows
-  - cmd: activate.bat
+  - cmd: conan install . -g qmake -g virtualbuildenv -s compiler="Visual Studio" -s os=Windows
+  - cmd: activate_build.bat
   - cmd: SET QTDIR=%CMAKE_PREFIX_PATH:;=%
   - ps: Set-Content -Value "[Paths]`r`nPrefix=.." -Path ${Env:QTDIR}/bin/qt.conf
   - cmd: qmake --version
