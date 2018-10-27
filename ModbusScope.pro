@@ -1,4 +1,3 @@
-message("Top of qmake file")
 TARGET = ModbusScope
 TEMPLATE = app
 
@@ -12,11 +11,6 @@ exists(conanbuildinfo.pri) {
 message("Including conanbuildinfo.pri")
 CONFIG += conan_basic_setup
 include(conanbuildinfo.pri)
-
-message("Checking if conanbuildinfo.pri was included")
-!include(conanbuildinfo.pri) {
-   message("Did not include conanbuildinfo.pri")
-}
 
 QT += core gui xml network
 QT += widgets printsupport
