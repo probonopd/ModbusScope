@@ -19,7 +19,8 @@ build_script:
   - cmd: activate.bat && SET
   - cmd: dir %CMAKE_PREFIX_PATH%
   - cmd: dir %CMAKE_PREFIX_PATH%\bin
-  - cmd: %CMAKE_PREFIX_PATH%\bin\qtenv2.bat
+  - cmd: ECHO '%CMAKE_PREFIX_PATH%\bin\qtenv2.bat'
+  - cmd: '%CMAKE_PREFIX_PATH%\bin\qtenv2.bat'
   - cmd: qmake --version
   - cmd: where qmake
   - cmd: qmake -d -d -d -spec %CMAKE_PREFIX_PATH%\\mkspecs\\win32-msvc ModbusScope.pro
