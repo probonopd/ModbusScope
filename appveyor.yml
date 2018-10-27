@@ -23,8 +23,7 @@ build_script:
   - ps: Set-Content -Value "[Paths]`r`nPrefix=.." -Path ${Env:QTDIR}/bin/qt.conf
   - cmd: qmake --version
   - cmd: dir %QTDIR%
-  - cmd: dir %QTDIR%\\qt5
-  - cmd: dir %QTDIR%\\qt5\\configure
+  - cmd: dir %QTDIR%\\bin
   - cmd: SET QMAKESPEC=win32-msvc
   - cmd: qmake ModbusScope.pro
   - cmd: SET PATH=%PATH%;C:\Qt\Tools\QtCreator\bin
