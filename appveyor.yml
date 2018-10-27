@@ -17,6 +17,7 @@ install:
 build_script:
   - cmd: conan install . -g qmake -g virtualenv
   - cmd: activate.bat && SET
+  - cmd: '%QTDIR%\bin\qtenv2.bat'
   - cmd: qmake --version
   - cmd: where qmake
   - cmd: dir
