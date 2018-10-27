@@ -1,4 +1,5 @@
 exists(conanbuildinfo.pri) {
+    message(Found conanbuildinfo.pri)
     CONFIG += conan_basic_setup
     include(conanbuildinfo.pri)
 }
