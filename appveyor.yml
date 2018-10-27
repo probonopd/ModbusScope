@@ -26,7 +26,7 @@ build_script:
   - ps: cat ${Env:QTDIR}/bin/qt.conf
   - cmd: qmake --version
   - cmd: qmake -spec %QTDIR%\\mkspecs\\win32-msvc ModbusScope.pro
-  - cmd: qmake_all
+  - cmd: make
 
 test_script:
         - cmd: dir
