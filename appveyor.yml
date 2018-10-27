@@ -25,7 +25,7 @@ build_script:
   - cmd: SET QMAKESPEC=win32-msvc
   - cmd: qmake ModbusScope.pro
   - cmd: SET PATH=%PATH%;C:\MinGW\bin
-  - cmd: dir "C:\\Program Files (x86)\Microsoft Visual Studio 14.0\\VC\\BIN\\x86_amd64" 
+  - cmd: dir "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\BIN\\x86_amd64" 
   - cmd: nmake
 
 artifacts:
