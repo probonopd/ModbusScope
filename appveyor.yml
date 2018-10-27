@@ -15,17 +15,17 @@ install:
   - cmd: conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan || exit 0
 
 build_script:
+  - cmd: call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
+  - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
   - cmd: conan install . -g qmake -g virtualenv -s compiler="Visual Studio" -s os=Windows
   - cmd: activate.bat
   - cmd: SET QTDIR=%CMAKE_PREFIX_PATH:;=%
-  - cmd: call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
-  - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
   - ps: Set-Content -Value "[Paths]`r`nPrefix=.." -Path ${Env:QTDIR}/bin/qt.conf
   - cmd: qmake --version
   - cmd: SET QMAKESPEC=win32-msvc
   - cmd: qmake ModbusScope.pro
   - cmd: SET PATH=%PATH%;C:\Qt\Tools\QtCreator\bin
-  - cmd: qbs ModbusScope.pro
+  - cmd: nmake
 
 artifacts:
  - path: makefile
