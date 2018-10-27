@@ -17,15 +17,12 @@ install:
 build_script:
   - cmd: conan install . -g qmake -g virtualenv
   - cmd: activate.bat
-  - cmd: dir %CMAKE_PREFIX_PATH%
-  - cmd: ECHO '%CMAKE_PREFIX_PATH:;=\%bin'
   - cmd: SET QTDIR=%CMAKE_PREFIX_PATH:;=%
+  - cmd: call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
+  - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
   - cmd: SET
-  - cmd: dir %QTDIR%\\bin
-  - cmd: ECHO '%QTDIR%\bin\qtenv2.bat'
   - cmd: qmake --version
-  - cmd: where qmake
-  - cmd: qmake -d -d -d -spec %QTDIR%\\mkspecs\\win32-msvc ModbusScope.pro
+  - cmd: qmake -d -spec %QTDIR%\\mkspecs\\win32-msvc ModbusScope.pro
   - cmd: qmake_all
 
 test_script:
