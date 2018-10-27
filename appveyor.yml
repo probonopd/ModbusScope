@@ -21,7 +21,6 @@ build_script:
   - cmd: ECHO '%CMAKE_PREFIX_PATH:;=\%bin'
   - cmd: SET QTDIR='%CMAKE_PREFIX_PATH:;=%'
   - cmd: SET
-  - cmd: dir '%QTDIR%'
   - cmd: ECHO '%QTDIR%\bin\qtenv2.bat'
   - cmd: '%QTDIR%\bin\qtenv2.bat'
   - cmd: qmake --version
