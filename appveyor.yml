@@ -3,6 +3,10 @@ version: 1.0.{build}
 platform:
   - x64
 
+cache:
+ - C:\Users\Appveyor\.conan -> conanfile.txt 
+ - C:\.conan -> conanfile.txt
+
 install:
   - cmd: echo "Downloading conan..."
   - cmd: pip.exe install conan
