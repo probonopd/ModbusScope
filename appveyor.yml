@@ -20,10 +20,9 @@ build_script:
   - cmd: SET QTDIR=%CMAKE_PREFIX_PATH:;=%
   - cmd: call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
   - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
-  - cmd: SET
   - ps: Set-Content -Value "[Paths]`r`nPrefix=.." -Path ${Env:QTDIR}/bin/qt.conf
   - cmd: qmake --version
-  - cmd: dir %QTDIR%\\mkspecs\\win32-msvc
+  - ps: cat %QTDIR%\\mkspecs\\win32-msvc\\qmake.conf
   - cmd: qmake -spec win32-msvc ModbusScope.pro
 
 artifacts:
