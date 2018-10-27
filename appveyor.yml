@@ -23,7 +23,8 @@ build_script:
   - cmd: SET
   - ps: Set-Content -Value "[Paths]`r`nPrefix=.." -Path ${Env:QTDIR}/bin/qt.conf
   - cmd: qmake --version
-  - cmd: qmake -spec %QTDIR%\\mkspecs\\win32-msvc ModbusScope.pro
+  - cmd: dir %QTDIR%\\mkspecs\\win32-msvc
+  - cmd: qmake -spec win32-msvc ModbusScope.pro
 
 artifacts:
  - path: makefile
