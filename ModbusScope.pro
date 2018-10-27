@@ -1,9 +1,3 @@
-exists(conanbuildinfo.pri) {
-    message(Found conanbuildinfo.pri)
-    CONFIG += conan_basic_setup
-    include(conanbuildinfo.pri)
-}
-
 QT += core gui xml network
 QT += widgets printsupport
 
@@ -11,6 +5,16 @@ TARGET = ModbusScope
 TEMPLATE = app
 
 CONFIG += c++11
+
+exists(conanbuildinfo.pri) {
+    message("Found conanbuildinfo.pri")
+}
+CONFIG += conan_basic_setup
+include(conanbuildinfo.pri)
+
+!include(conanbuildinfo.pri) {
+   message("Did not include conanbuildinfo.pri")
+}
 
 win32 {
 LIBS += -lws2_32
