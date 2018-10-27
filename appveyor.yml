@@ -15,7 +15,7 @@ install:
   - cmd: conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan || exit 0
 
 build_script:
-  - cmd: conan install . -g qmake -g virtualenv -s compiler='Visual Studio' -s os='Windows'
+  - cmd: conan install . -g qmake -g virtualenv -s compiler="Visual Studio" -s os=Windows
   - cmd: activate.bat
   - cmd: SET QTDIR=%CMAKE_PREFIX_PATH:;=%
   - cmd: call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
