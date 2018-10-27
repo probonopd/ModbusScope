@@ -22,7 +22,7 @@ build_script:
   - cmd: SET QTDIR=%CMAKE_PREFIX_PATH:;=%
   - ps: Set-Content -Value "[Paths]`r`nPrefix=.." -Path ${Env:QTDIR}/bin/qt.conf
   - cmd: qmake --version
-  - cmd: dir %QTDIR%
+  - ps: cat conanbuildinfo.txt
   - cmd: dir %QTDIR%\\bin
   - cmd: SET QMAKESPEC=win32-msvc
   - cmd: qmake ModbusScope.pro
