@@ -22,9 +22,9 @@ build_script:
   - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
   - ps: Set-Content -Value "[Paths]`r`nPrefix=.." -Path ${Env:QTDIR}/bin/qt.conf
   - cmd: qmake --version
-  - ps: cat ${Env:QTDIR}/mkspecs/win32-msvc/qmake.conf
-  - ps: cat ${Env:QTDIR}/mkspecs/common/msvc-desktop.conf
-  - cmd: qmake -spec win32-msvc ModbusScope.pro
+  - cmd: SET QMAKESPEC=win32-msvc
+  - cmd: qmake ModbusScope.pro
+  - cmd: nmake
 
 artifacts:
  - path: makefile
