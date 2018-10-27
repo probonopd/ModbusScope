@@ -21,7 +21,7 @@ build_script:
   - cmd: call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
   - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
   - cmd: SET
-  - ps: Set-Content -Value "[Paths]\r\nPrefix=.." -Path %QTDIR%\\bin\\qt.conf
+  - ps: Set-Content -Value "[Paths]\r\nPrefix=.." -Path ${Env:QTDIR}/bin/qt.conf
   - cmd: qmake --version
   - cmd: qmake -spec %QTDIR%\\mkspecs\\win32-msvc ModbusScope.pro
   - cmd: qmake_all
