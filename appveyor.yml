@@ -1,0 +1,40 @@
+version: 1.0.{build}
+
+platform:
+  - x64
+
+cache:
+ - C:\Users\Appveyor\.conan -> conanfile.txt 
+ - C:\.conan -> conanfile.txt
+
+install:
+  - cmd: echo "Downloading conan..."
+  - cmd: pip.exe install conan
+  - cmd: conan user # Create the conan data directory
+  - cmd: conan --version
+  - cmd: conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan || exit 0
+
+build_script:
+  - cmd: call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
+  - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
+  - cmd: conan install . -g qmake -g virtualenv -s compiler="Visual Studio" -s os=Windows
+  - cmd: activate.bat
+  - cmd: SET QTDIR=%CMAKE_PREFIX_PATH:;=%
+  - ps: Set-Content -Value "[Paths]`r`nPrefix=.." -Path ${Env:QTDIR}/bin/qt.conf
+  - cmd: qmake --version
+  - ps: cat conanbuildinfo.txt
+  - ps: cat conaninfo.txt
+  - ps: cat activate.bat
+  - cmd: dir 
+  - cmd: dir %QTDIR%\\bin
+  - cmd: SET QMAKESPEC=win32-msvc
+  - cmd: qmake ModbusScope.pro
+  - cmd: SET PATH=%PATH%;C:\Qt\Tools\QtCreator\bin
+  - cmd: nmake
+
+artifacts:
+ - path: makefile
+ - path: Makefile.Release
+
+test_script:
+        - cmd: dir
