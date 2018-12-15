@@ -27,7 +27,7 @@ script:
   - mkdir -p appdir/usr/share/applications ; cp modbusscope.desktop appdir/usr/share/applications/
   - mkdir -p appdir/usr/share/icons/hicolor/scalable/apps ; cp src/icon/icon_original.svg appdir/usr/share/icons/hicolor/scalable/apps/modbusscope.svg
   - find appdir/
-  - wget -c -nv "https://transfer.sh/EnUOi/linuxdeployqt-continuous-x86_64.AppImage"
+  - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
   - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
   - export VERSION=$(git rev-parse --short HEAD) # linuxdeployqt uses this for naming the file
