@@ -25,13 +25,19 @@ script:
   - make -j$(nproc)
   - mkdir -p appdir/usr/bin ; cp src/ModbusScope appdir/usr/bin/
   - mkdir -p appdir/usr/share/applications ; cp modbusscope.desktop appdir/usr/share/applications/
-  - mkdir -p appdir/usr/share/icons/hicolor/scalable/apps ; cp src/icon/icon_original.svg appdir/usr/share/icons/hicolor/scalable/apps/
+  - mkdir -p appdir/usr/share/icons/hicolor/scalable/apps ; cp src/icon/icon_original.svg appdir/usr/share/icons/hicolor/scalable/apps/modbusscope.svg
   - find appdir/
-  - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
+  - wget -c -nv "https://transfer.sh/JFz4J/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
   - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
   - export VERSION=$(git rev-parse --short HEAD) # linuxdeployqt uses this for naming the file
+  - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
+  - mkdir -p appdir/usr/optional/ ; wget -c https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/exec-x86_64.so -O ./appdir/usr/optional/exec.so
+  - mkdir -p appdir/usr/optional/libstdc++/ ; cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 ./appdir/usr/optional/libstdc++/
+  - ( cd appdir/usr/ ; ln -s share/audacity/* . ) # Audacity loads e.g., nyquist/ from cwd # FIXME; https://sourceforge.net/p/audacity/mailman/message/36304847/
+  - ( cd appdir ; rm AppRun ; wget -c https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/AppRun-patched-x86_64 -O AppRun ; chmod a+x AppRun)
   - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage
+  
 # - python3 ./tests_integration/run_tests.py
 
 after_success:
