@@ -23,7 +23,7 @@ script:
   - ./ModbusScopeUnitTests
   - qmake CONFIG+=release PREFIX=/usr ./ModbusScope.pro
   - make -j$(nproc)
-  - mkdir -p appdir/usr/bin ; cp ModbusScope appdir/usr/bin/
+  - mkdir -p appdir/usr/bin ; cp src/ModbusScope appdir/usr/bin/
   - mkdir -p appdir/usr/share/applications ; cp modbusscope.desktop appdir/usr/share/applications/
   - mkdir -p appdir/usr/share/icons/hicolor/scalable/apps ; cp src/icon/icon_original.svg appdir/usr/share/icons/hicolor/scalable/apps/
   - find appdir/
